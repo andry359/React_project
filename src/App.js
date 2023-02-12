@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/App.css'
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
@@ -6,20 +6,20 @@ import PostFilter from './components/PostFilter';
 import MyModal from './components/UI/modal/MyModal';
 import MyButton from './components/UI/button/MyButton';
 import { usePosts } from './hooks/usePost';
+import POstService from './API/PostService';
+import MyLoader from './components/UI/loader/MyLoader';
 
 function App() {
 
-  const [posts, setPosts] = useState([
-    { id: 1, title: "aa", body: "bb" },
-    { id: 2, title: "rr", body: "zz" },
-    { id: 3, title: "yy", body: "oo" },
-    { id: 4, title: "Посмотреть курс реакт", body: "разобраться как работает реакт приложение" },
-    { id: 5, title: "А как сортировать?", body: "ыЫы" },
-  ]);
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const sortedAndSearchedPost = usePosts(posts, filter.sort, filter.query);
+  const [isPostsLoading, setIsPostsLoading] = useState(false);
 
+  useEffect(() => {
+    fetchPosts();
+  }, [])
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -29,8 +29,20 @@ function App() {
     setPosts(posts.filter(p => p.id !== post.id))
   }
 
+  async function fetchPosts() {
+    setIsPostsLoading(true);
+    setTimeout(async () => {
+      const posts = await POstService.getAll();
+      setPosts(posts);
+      setIsPostsLoading(false);
+    }, 1000)
+  }
+
   return (
     <div className="App">
+      <MyButton onClick={fetchPosts}>
+        Get POSTS!
+      </MyButton>
       <MyButton style={{ marginTop: '30px' }} onClick={() => setModal(true)}>
         Создать пост
       </MyButton>
@@ -42,11 +54,14 @@ function App() {
         filter={filter}
         setFilter={setFilter}
       />
-      <PostList
-        remove={removePost}
-        posts={sortedAndSearchedPost}
-        title={'Посты про JS!'}
-      />
+      {isPostsLoading
+        ? <div style={{ display: "flex", justifyContent: 'center', marginTop: "50px" }}><MyLoader /></div>
+        : <PostList
+          remove={removePost}
+          posts={sortedAndSearchedPost}
+          title={'Посты про JS!'}
+        />}
+
     </div>
   );
 }
