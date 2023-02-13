@@ -12,9 +12,22 @@
 
 .App {
     width: 800px;
-
 }
-
+.about {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+.about__wrapper {
+    border-radius: 15px;
+    border: 2px solid teal;
+    width: 500px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .post {
     display: flex;
     justify-content: space-between;
@@ -53,14 +66,32 @@
     border: 2px solid orange;
     font-weight: bold;
 }
-.navbar {
-    height: 50px;
-    width: 100vw;
+.post__title {
+    margin-top: 145px;
     display: flex;
-    align-items: center;
-    padding: 0 15px;
-    background: lightcoral;
+    justify-content: center;
 }
-.navbar__likes {
-    margin-left: auto;
+.postPage {
+    margin-top: 25px;
+    width: 950px;
+}
+.postPage__title {
+    font-size: 18px;
+    margin-top: 30px;
+}
+.postPage__body {
+    font-size: 16px;
+}
+.comments {
+    margin-top: 25px;
+    width: 950px;
+}
+.comment {
+    margin-top: 30px;
+}
+.comment__title {
+    font-size: 18px;
+}
+.comment__body {
+    font-size: 16px;
 }

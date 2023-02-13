@@ -20,10 +20,14 @@ export const usePosts = (posts, sort, query) => {
     const sortedPosts = useSortedPosts(posts, sort);
     // Функция поиска и сортировки. Возвращает отсортированный по задданным полям массив
     const sortedAndSearchedPost = useMemo(() => {
-        //! Тут есть ошибка: нельзя воспользоваться поисковой строкой если выставить option в значении "по содержанию", т.к в функции filter мы передаем post.title, а не post.body.
-        //! Таким образом можно сказать, что всегда будет производиться поиск по названию, при использовании option в значении "по содержанию". Обратный пример (всегда поиск по
-        //! содержанию) приведен в закомментированной строке ниже
-        //! return sortedPosts.filter(post => post.body.toLowerCase().includes(filter.query.toLowerCase()))
+        // Тут есть ошибка: нельзя воспользоваться поисковой строкой если выставить option в значении "по содержанию", т.к в функции filter мы передаем post.title, а не post.body.
+        // Таким образом можно сказать, что всегда будет производиться поиск по названию, при использовании option в значении "по содержанию". Обратный пример (всегда поиск по
+        // содержанию) приведен в закомментированной строке ниже
+        // return sortedPosts.filter(post => post.body.toLowerCase().includes(filter.query.toLowerCase()))
+
+        // function searchSelection(selection) {
+        //     return sortedPosts.filter(post => post.body.toLowerCase().includes(filter.query.toLowerCase()))
+        // }
         return sortedPosts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()))
     }, [query, sortedPosts]);
 
