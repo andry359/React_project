@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class POstService {
+export default class PostService {
     static async getAll(limit = 10, page = 1) {
 
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
@@ -11,4 +11,11 @@ export default class POstService {
         });
         return response;
     }
+
+    static async getById(id) {
+
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        return response;
+    }
 }
+
