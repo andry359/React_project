@@ -6,10 +6,10 @@ export const useFetching = (callback) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     // Блок finally необходим, чтобы в любом случае закрыть лоадер, даже если callback запрос вернет ошибку
-    const fetching = async () => {
+    const fetching = async (...args) => {
         try {
             setIsLoading(true);
-            await callback();
+            await callback(...args);
         } catch (e) {
             setError(e.message);
         } finally {
