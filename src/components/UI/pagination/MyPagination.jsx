@@ -1,7 +1,6 @@
 import React from 'react';
-// import classes from './MyButton.module.css';
-import { getPagesArray, getPagesCount } from '../../../utils/pages';
-import { usePagination } from '../../../hooks/usePagination';
+import { getPagesArray } from '../../../utils/pages';
+// import { usePagination } from '../../../hooks/usePagination';
 
 const MyPagination = ({ totalPages, page, changePage }) => {
 
