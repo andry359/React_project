@@ -10,6 +10,7 @@ import MyLoader from '../components/UI/loader/MyLoader';
 import { useFetching } from '../hooks/useFetching';
 import { getPagesCount } from '../utils/pages';
 import MyPagination from '../components/UI/pagination/MyPagination';
+import MySelect from '../components/UI/select/MySelect';
 
 const Posts = () => {
 
@@ -30,7 +31,7 @@ const Posts = () => {
 
     useEffect(() => {
         fetchPosts(limit, page);
-    }, [])
+    }, [limit])
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost]);
@@ -58,6 +59,19 @@ const Posts = () => {
                 filter={filter}
                 setFilter={setFilter}
             />
+            <div style={{ marginTop: '25px' }}>
+                <MySelect
+                    value={limit}
+                    onChange={value => setLimit(value)}
+                    defaultValue='Количество элементов на странице'
+                    options={[
+                        { value: 5, name: '5' },
+                        { value: 10, name: '10' },
+                        { value: 25, name: '25' },
+                        { value: -1, name: 'Показать все' },
+                    ]}
+                />
+            </div>
             {postError &&
                 <h1>Произошла ошибка! ${postError}</h1>
             }
