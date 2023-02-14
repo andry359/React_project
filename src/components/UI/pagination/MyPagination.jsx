@@ -4,9 +4,7 @@ import { getPagesArray } from '../../../utils/pages';
 
 const MyPagination = ({ totalPages, page, changePage }) => {
 
-    // Запасной вариант
     let pagesArray = getPagesArray(totalPages);
-    //! Тут разобраться почему пропадют кнопки с номером страници
     // let pagesArray = usePagination(totalPages);
 
     return (

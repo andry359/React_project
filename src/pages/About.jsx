@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MyButton from '../components/UI/button/MyButton';
-import MyModal from '../components/UI/modal/MyModal';
-import PostForm from '../components/PostForm';
 import { Link } from 'react-router-dom';
 
 

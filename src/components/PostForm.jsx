@@ -8,7 +8,6 @@ const PostForm = ({ create }) => {
 
     const addNewPost = (e) => {
         e.preventDefault();
-        // Запомнить!
         const newPost = {
             ...post, id: Date.now()
         }
