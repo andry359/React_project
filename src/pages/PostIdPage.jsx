@@ -32,7 +32,7 @@ const PostIdPage = () => {
             {isLoading
                 ? <div style={{ display: "flex", justifyContent: 'center', marginTop: "50px" }}><MyLoader /></div>
                 : <div className='postPage'>
-                    <h5 className='postPage__title'>{post.id}.{post.title}</h5>
+                    <h5 className='postPage__title'>{post.id}. {post.title}</h5>
                     <div className='postPage__body'>{post.body}</div>
                 </div>
             }

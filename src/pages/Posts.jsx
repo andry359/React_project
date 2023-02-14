@@ -67,7 +67,7 @@ const Posts = () => {
                 : <PostList
                     remove={removePost}
                     posts={sortedAndSearchedPost}
-                    title={'Посты про JS!'}
+                    title={'Список постов'}
                 />}
             <MyPagination
                 page={page}
