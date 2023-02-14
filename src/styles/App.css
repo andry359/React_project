@@ -95,3 +95,19 @@
 .comment__body {
     font-size: 16px;
 }
+.login {
+ margin-top: 50px;
+ width: 950px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.login__form {
+   margin-top: 25px;
+   height: 120px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}

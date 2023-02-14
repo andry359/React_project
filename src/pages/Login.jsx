@@ -14,13 +14,15 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1>Страница для логина</h1>
-            <form onSubmit={login}>
+        <div className='login'>
+            <h1 className='login__title'>Введите личные данные</h1>
+
+            <form className='login__form' onSubmit={login}>
                 <MyInput type="text" placeholder='Введите логин' />
                 <MyInput type="password" placeholder='Введите пароль' />
                 <MyButton>Войти</MyButton>
             </form>
+
         </div>
     )
 }
