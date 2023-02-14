@@ -8,7 +8,6 @@ const MyPagination = ({ totalPages, page, changePage }) => {
     let pagesArray = getPagesArray(totalPages);
     //! Тут разобраться почему пропадют кнопки с номером страници
     // let pagesArray = usePagination(totalPages);
-    console.log(pagesArray);
 
     return (
         <div className='page__wrapper'>
