@@ -6,14 +6,16 @@ import Login from "../pages/Login";
 
 export const privateRoutes = [
     { path: '/about', element: About },
+    { path: '/', element: About },
     { path: '/posts', element: Posts },
     { path: '/posts/:id', element: PostIdPage },
     { path: '/*', element: Error },
-    { path: '/', element: About },
 ];
 
 export const publicRoutes = [
     { path: '/login', element: Login },
-    { path: '/*', element: Error },
+    { path: '/about', element: Login },
     { path: '/', element: Login },
+    { path: '/posts', element: Error },
+    { path: '/*', element: Error },
 ];
