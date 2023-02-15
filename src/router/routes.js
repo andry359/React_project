@@ -16,6 +16,6 @@ export const publicRoutes = [
     { path: '/login', element: Login },
     { path: '/about', element: Login },
     { path: '/', element: Login },
+    { path: '/*', element: Login },
     { path: '/posts', element: Error },
-    { path: '/*', element: Error },
 ];
